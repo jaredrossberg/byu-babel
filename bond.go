@@ -1,10 +1,9 @@
 package main
 
 type Bond struct {
-	atom1   *Atom
-	atom2   *Atom
-	order   int
-	partial bool
+	atom1, atom2 *Atom
+	order        int
+	partial      bool
 }
 
 func createBond(atom1, atom2 *Atom, order int, partial bool) Bond {

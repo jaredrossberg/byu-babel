@@ -52,15 +52,15 @@ func main() {
 
 	babel := createBabel()
 	if err := babel.readFile(inputFile); err != nil {
-		fmt.Fprint(os.Stderr, err.Error())
+		fmt.Fprint(os.Stderr, err.Error()+"\n")
 		os.Exit(1)
 	}
 	if err := babel.calculate(); err != nil {
-		fmt.Fprint(os.Stderr, err.Error())
+		fmt.Fprint(os.Stderr, err.Error()+"\n")
 		os.Exit(1)
 	}
 	if err := babel.outputReaction(outputFile); err != nil {
-		fmt.Fprint(os.Stderr, err.Error())
+		fmt.Fprint(os.Stderr, err.Error()+"\n")
 		os.Exit(1)
 	}
 

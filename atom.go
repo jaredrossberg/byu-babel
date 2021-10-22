@@ -1,27 +1,31 @@
 package main
 
 type Atom struct {
-	x int
-	y int
-	z int
+	element string
+	x, y, z float64
 }
 
-func createAtom(x, y, z int) Atom {
+func createAtom(element string, x, y, z float64) Atom {
 	return Atom{
-		x: x,
-		y: y,
-		z: z,
+		element: element,
+		x:       x,
+		y:       y,
+		z:       z,
 	}
 }
 
-func (a *Atom) X() int {
+func (a *Atom) Element() string {
+	return a.element
+}
+
+func (a *Atom) X() float64 {
 	return a.x
 }
 
-func (a *Atom) Y() int {
+func (a *Atom) Y() float64 {
 	return a.y
 }
 
-func (a *Atom) Z() int {
+func (a *Atom) Z() float64 {
 	return a.z
 }

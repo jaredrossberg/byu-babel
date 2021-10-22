@@ -1,16 +1,12 @@
 package main
 
 import (
+	"bufio"
+	"errors"
 	"os"
+	"strconv"
+	"strings"
 )
-
-type BYUBabelError struct {
-	message String
-}
-
-func (e *BYUBabelError) Error() string {
-	return e.message
-}
 
 type BYUBabel struct {
 	reaction Reaction
@@ -30,32 +26,83 @@ func (b *BYUBabel) calculate() error {
 func (b *BYUBabel) readFile(inputFile string) error {
 	split := strings.SplitN(inputFile, ".", 2)
 	if len(split) < 2 {
-		return BYUBabelError{"Input file is of unknown filetype"}
+		return errors.New("input file is of unknown filetype")
 	}
+
+	f, err := os.Open(inputFile)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
 
 	switch split[1] {
 	case "xyz":
-		return b.readXYZ(inputFile)
+		return b.readXYZ(f)
 	case "mol":
-		return b.readMOL(inputFile)
+		return b.readMOL(f)
 	case "sdf":
-		return b.readSDF(inputFile)
+		return b.readSDF(f)
 	default:
-		return BYUBabelError{"Input filetype is not currently accepted"}
+		return errors.New("input filetype is not currently accepted")
 	}
+}
 
+func (b *BYUBabel) readXYZ(f *os.File) error {
+	numElements := -1
+	count := 0
+
+	atoms := make([]Atom, 0)
+	r := createReaction()
+
+	scanner := bufio.NewScanner(f)
+	for scanner.Scan() {
+		line := scanner.Text()
+		words := strings.Split(line, "\t")
+
+		var err error
+		if line == "" {
+			continue
+		} else if numElements < 0 || (len(words) == 1 && count == 0) {
+			var num int
+			if num, err = strconv.Atoi(words[0]); err != nil {
+				return errors.New("malformed file")
+			}
+			numElements = num
+			continue
+		} else if count < numElements {
+			var x, y, z float64
+			if len(words) < 4 {
+				return errors.New("malformed file")
+			}
+			if x, err = strconv.ParseFloat(words[1], 64); err != nil {
+				return errors.New("malformed file")
+			}
+			if y, err = strconv.ParseFloat(words[2], 64); err != nil {
+				return errors.New("malformed file")
+			}
+			if z, err = strconv.ParseFloat(words[3], 64); err != nil {
+				return errors.New("malformed file")
+			}
+			atoms = append(atoms, createAtom(words[0], x, y, z))
+			count++
+		}
+
+		if count == numElements {
+			r.addState(createStateWithoutBonds(atoms))
+			count = 0
+			atoms = make([]Atom, 0)
+		}
+
+	}
+	b.reaction = r
 	return nil
 }
 
-func (b *BYUBabel) readXYZ(inputFile string) error {
-	return nil
+func (b *BYUBabel) readMOL(f *os.File) error {
+	return b.readSDF(f)
 }
 
-func (b *BYUBabel) readMOL(inputFile string) error {
-	return b.readSDF(inputFile)
-}
-
-func (b *BYUBabel) readSDF(inputFile string) error {
+func (b *BYUBabel) readSDF(f *os.File) error {
 	return nil
 }
 
@@ -71,8 +118,8 @@ func (b *BYUBabel) outputReaction(outputFile string) error {
 		f = os.Stdout
 	}
 
-	for _, s := range b.reaction.getStates() {
-
+	for _, s := range b.reaction.States() {
+		outputState(f, s)
 	}
 
 	f.WriteString("This is a test output\n")

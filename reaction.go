@@ -14,6 +14,6 @@ func (r *Reaction) addState(s State) {
 	r.states = append(r.states, s)
 }
 
-func (r *Reaction) getStates() []State {
+func (r *Reaction) States() []State {
 	return r.states
 }
