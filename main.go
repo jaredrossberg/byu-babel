@@ -7,8 +7,10 @@ This program takes a file and determines bond order (including partial bonds)
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -17,10 +19,6 @@ func main() {
 	inputFile := ""
 	outputFile := ""
 
-	if len(args) < 1 {
-		fmt.Fprint(os.Stderr, "Input file must be provided\n")
-		os.Exit(1)
-	}
 	for i := 0; i < len(args); i++ {
 		if args[i] == "-i" || args[i] == "--input" {
 			if inputFile != "" {
@@ -45,9 +43,32 @@ func main() {
 			}
 		}
 	}
-	if inputFile == "" {
+
+	if inputFile == "" && len(args) > 0 {
 		fmt.Fprint(os.Stderr, "Input file must be provided\n")
 		os.Exit(1)
+	}
+
+	reader := bufio.NewReader(os.Stdin)
+	for inputFile == "" && len(args) == 0 {
+		fmt.Print("Input file: ")
+		var err error
+		inputFile, err = reader.ReadString('\n')
+		if err != nil {
+			fmt.Fprint(os.Stderr, err.Error()+"\n")
+			os.Exit(1)
+		}
+		inputFile = strings.TrimRight(inputFile, "\n")
+	}
+	if outputFile == "" && len(args) == 0 {
+		fmt.Print("Output file (Press ENTER to print to console): ")
+		var err error
+		outputFile, err = reader.ReadString('\n')
+		if err != nil && err.Error() != "EOF" {
+			fmt.Fprint(os.Stderr, err.Error()+"\n")
+			os.Exit(1)
+		}
+		outputFile = strings.TrimRight(outputFile, "\n")
 	}
 
 	babel := createBabel()
