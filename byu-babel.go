@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"errors"
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -19,7 +20,30 @@ func createBabel() BYUBabel {
 }
 
 func (b *BYUBabel) calculate() error {
+	for _, state := range b.reaction.States() {
+		numAtoms := len(state.Atoms())
+		distances := make([][]float64, numAtoms)
+		for i := range distances {
+			distances[i] = make([]float64, numAtoms)
+		}
 
+		for i := 0; i < numAtoms; i++ {
+			for j := 0; j < numAtoms; j++ {
+				if i != j && distances[i][j] == 0 {
+					atom1 := state.Atoms()[i]
+					atom2 := state.Atoms()[j]
+
+					xDiff := atom1.X() - atom2.X()
+					yDiff := atom1.Y() - atom2.Y()
+					zDiff := atom1.Z() - atom2.Z()
+					dist := math.Sqrt(math.Pow(xDiff, 2) + math.Pow(yDiff, 2) + math.Pow(zDiff, 2))
+					distances[i][j] = dist
+					distances[j][i] = dist
+				}
+			}
+		}
+
+	}
 	return nil
 }
 

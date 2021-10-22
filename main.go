@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -71,6 +72,7 @@ func main() {
 		outputFile = strings.TrimRight(outputFile, "\n")
 	}
 
+	start := time.Now()
 	babel := createBabel()
 	if err := babel.readFile(inputFile); err != nil {
 		fmt.Fprint(os.Stderr, err.Error()+"\n")
@@ -84,6 +86,7 @@ func main() {
 		fmt.Fprint(os.Stderr, err.Error()+"\n")
 		os.Exit(1)
 	}
+	fmt.Printf("Processed %d states in %s\n", len(babel.reaction.States()), time.Since(start))
 
 	os.Exit(0)
 }
