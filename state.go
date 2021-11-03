@@ -30,3 +30,22 @@ func (s *State) Bonds() []Bond {
 func (s *State) setBonds(bonds []Bond) {
 	s.bonds = bonds
 }
+
+func (s *State) getBondsContainingAtom(atom Atom) []Bond {
+	ret := make([]Bond, 0)
+	for i := range s.bonds {
+		if s.bonds[i].atom1 == &atom || s.bonds[i].atom2 == &atom {
+			ret = append(ret, s.bonds[i])
+		}
+	}
+	return ret
+}
+
+func (s *State) getAtomIndex(atom *Atom) int {
+	for i := range s.atoms {
+		if s.atoms[i].equals(atom) {
+			return i
+		}
+	}
+	return -1
+}

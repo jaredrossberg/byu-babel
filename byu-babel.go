@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"errors"
-	"math"
+	"fmt"
 	"os"
 	"strconv"
 	"strings"
@@ -20,31 +20,117 @@ func createBabel() BYUBabel {
 }
 
 func (b *BYUBabel) calculate() error {
+	reactionWithBonds := createReaction()
 	for _, state := range b.reaction.States() {
-		numAtoms := len(state.Atoms())
-		distances := make([][]float64, numAtoms)
-		for i := range distances {
-			distances[i] = make([]float64, numAtoms)
+		bonds, err := b.calculateSingleState(state)
+		if err != nil {
+			return err
 		}
+		state.setBonds(bonds)
+		reactionWithBonds.addState(state)
+	}
+	b.reaction = reactionWithBonds
+	return nil
+}
 
-		for i := 0; i < numAtoms; i++ {
-			for j := 0; j < numAtoms; j++ {
-				if i != j && distances[i][j] == 0 {
-					atom1 := state.Atoms()[i]
-					atom2 := state.Atoms()[j]
+func (b *BYUBabel) calculateSingleState(state State) ([]Bond, error) {
+	numAtoms := len(state.Atoms())
+	distances := make([][]float64, numAtoms)
+	bondMatrix := make([][]float64, numAtoms)
+	for i := range distances {
+		distances[i] = make([]float64, numAtoms)
+		bondMatrix[i] = make([]float64, numAtoms)
+	}
 
-					xDiff := atom1.X() - atom2.X()
-					yDiff := atom1.Y() - atom2.Y()
-					zDiff := atom1.Z() - atom2.Z()
-					dist := math.Sqrt(math.Pow(xDiff, 2) + math.Pow(yDiff, 2) + math.Pow(zDiff, 2))
-					distances[i][j] = dist
-					distances[j][i] = dist
-				}
+	// Fill distance matrix with distances
+	for i := 0; i < numAtoms; i++ {
+		for j := 0; j < numAtoms; j++ {
+			if i != j && distances[i][j] == 0 {
+				atom1 := state.Atoms()[i]
+				atom2 := state.Atoms()[j]
+
+				dist := atom1.distanceFrom(atom2)
+				distances[i][j] = dist
+				distances[j][i] = dist
 			}
 		}
-
 	}
-	return nil
+
+	// Fill bond matrix with bonds
+	for i := 0; i < numAtoms; i++ {
+		for j := 0; j < numAtoms; j++ {
+			if i == j || bondMatrix[i][j] != 0 {
+				continue
+			}
+			atom1 := state.Atoms()[i]
+			atom2 := state.Atoms()[j]
+			dist := distances[i][j]
+
+			if atom1.Element() == "C" && atom2.Element() == "C" {
+				if 0 < dist && dist <= 1.24 {
+					bondMatrix[i][j] = 3
+				} else if 1.24 < dist && dist <= 1.28 {
+					bondMatrix[i][j] = 2.5
+				} else if 1.28 < dist && dist <= 1.36 {
+					bondMatrix[i][j] = 2
+				} else if 1.36 < dist && dist <= 1.44 {
+					bondMatrix[i][j] = 1.5
+				} else if 1.44 < dist && dist <= 1.61 {
+					bondMatrix[i][j] = 1
+				} else if 1.61 < dist && dist <= 1.89 {
+					bondMatrix[i][j] = 0.5
+				}
+			} else if atom1.Element() == "C" && atom2.Element() == "H" {
+				if 0 < dist && dist <= 1.14 {
+					bondMatrix[i][j] = 1
+				} else if 1.14 < dist && dist <= 1.37 {
+					bondMatrix[i][j] = 0.5
+				}
+			} else if atom1.Element() == "H" && atom2.Element() == "H" {
+				if 0 < dist && dist <= 1.63 {
+					bondMatrix[i][j] = 1
+				} else if 1.63 < dist && dist < 1.00 {
+					bondMatrix[i][j] = 0.5
+				}
+			}
+			bondMatrix[j][i] = bondMatrix[i][j]
+		}
+	}
+
+	// If atom has invalid number of bonds, remove bonds with farthest distance between atoms until valid number of bonds
+	for i := 0; i < numAtoms; i++ {
+		bondsCount := 0.0
+		for j := 0; j < numAtoms; j++ {
+			bondsCount += bondMatrix[i][j]
+		}
+		for bondsCount > float64(state.Atoms()[i].getMaxBonds()) {
+			farthestDistance := -1
+			for j := 0; j < numAtoms; j++ {
+				if bondMatrix[i][j] > 0 && (farthestDistance < 0 || distances[i][j] > distances[i][farthestDistance]) {
+					farthestDistance = j
+				}
+			}
+			bondsCount -= bondMatrix[i][farthestDistance]
+			bondMatrix[i][farthestDistance] = 0
+			bondMatrix[farthestDistance][i] = 0
+		}
+	}
+
+	// Add bonds to state
+	bonds := make([]Bond, 0)
+	for i := 0; i < numAtoms; i++ {
+		for j := i + 1; j < numAtoms; j++ {
+			if bondMatrix[i][j] == 0 {
+				continue
+			}
+			atom1 := state.Atoms()[i]
+			atom2 := state.Atoms()[j]
+			order := int(bondMatrix[i][j])
+			partial := (bondMatrix[i][j] - float64(order)) > 0
+			bonds = append(bonds, createBond(&atom1, &atom2, order, partial))
+		}
+	}
+	return bonds, nil
 }
 
 func (b *BYUBabel) readFile(inputFile string) error {
@@ -82,9 +168,14 @@ func (b *BYUBabel) readXYZ(f *os.File) error {
 	for scanner.Scan() {
 		line := scanner.Text()
 		words := strings.Split(line, "\t")
+		if len(words) == 1 {
+			words = strings.Split(line, " ")
+		}
 
 		var err error
 		if line == "" {
+			continue
+		} else if len(words) > 4 && count == 0 && numElements > 0 {
 			continue
 		} else if numElements < 0 || (len(words) == 1 && count == 0) {
 			var num int
@@ -146,7 +237,24 @@ func (b *BYUBabel) outputReaction(outputFile string) error {
 		outputState(f, s)
 	}
 
-	f.WriteString("This is a test output\n")
+	for _, state := range b.reaction.States() {
+		f.WriteString("\n")
+		f.WriteString("\n")
+		f.WriteString("\n")
+		f.WriteString(fmt.Sprintln(len(state.Atoms()), len(state.bonds)))
+		for _, atom := range state.Atoms() {
+			f.WriteString(fmt.Sprintln(atom.X(), atom.Y(), atom.Z(), atom.Element()))
+		}
+		for _, bond := range state.Bonds() {
+			partial := 0
+			if bond.partial {
+				partial = 1
+			}
+			f.WriteString(fmt.Sprintln(state.getAtomIndex(bond.atom1)+1, state.getAtomIndex(bond.atom2)+1, bond.order, partial))
+		}
+		f.WriteString("M  END\n")
+		f.WriteString("$$$$\n")
+	}
 	return nil
 }
 
