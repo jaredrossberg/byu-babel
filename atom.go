@@ -32,16 +32,17 @@ func (a *Atom) Z() float64 {
 	return a.z
 }
 
-func (a *Atom) getMaxBonds() int {
-	switch a.element {
-	case "C":
-		return 4
-	case "H":
-		return 1
-	default:
-		return 0
-	}
-}
+// UPDATE: This is being removed
+// func (a *Atom) getMaxBonds() int {
+// 	switch a.element {
+// 	case "C":
+// 		return 4
+// 	case "H":
+// 		return 1
+// 	default:
+// 		return 0
+// 	}
+// }
 
 func (a *Atom) distanceFrom(a2 Atom) float64 {
 	return math.Sqrt(math.Pow(a.x-a2.x, 2) + math.Pow(a.y-a2.y, 2) + math.Pow(a.z-a2.z, 2))

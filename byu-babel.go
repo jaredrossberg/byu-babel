@@ -98,23 +98,24 @@ func (b *BYUBabel) calculateSingleState(state State) ([]Bond, error) {
 	}
 
 	// If atom has invalid number of bonds, remove bonds with farthest distance between atoms until valid number of bonds
-	for i := 0; i < numAtoms; i++ {
-		bondsCount := 0.0
-		for j := 0; j < numAtoms; j++ {
-			bondsCount += bondMatrix[i][j]
-		}
-		for bondsCount > float64(state.Atoms()[i].getMaxBonds()) {
-			farthestDistance := -1
-			for j := 0; j < numAtoms; j++ {
-				if bondMatrix[i][j] > 0 && (farthestDistance < 0 || distances[i][j] > distances[i][farthestDistance]) {
-					farthestDistance = j
-				}
-			}
-			bondsCount -= bondMatrix[i][farthestDistance]
-			bondMatrix[i][farthestDistance] = 0
-			bondMatrix[farthestDistance][i] = 0
-		}
-	}
+	// UPDATE: This is being removed
+	// for i := 0; i < numAtoms; i++ {
+	// 	bondsCount := 0.0
+	// 	for j := 0; j < numAtoms; j++ {
+	// 		bondsCount += bondMatrix[i][j]
+	// 	}
+	// 	for bondsCount > float64(state.Atoms()[i].getMaxBonds()) {
+	// 		farthestDistance := -1
+	// 		for j := 0; j < numAtoms; j++ {
+	// 			if bondMatrix[i][j] > 0 && (farthestDistance < 0 || distances[i][j] > distances[i][farthestDistance]) {
+	// 				farthestDistance = j
+	// 			}
+	// 		}
+	// 		bondsCount -= bondMatrix[i][farthestDistance]
+	// 		bondMatrix[i][farthestDistance] = 0
+	// 		bondMatrix[farthestDistance][i] = 0
+	// 	}
+	// }
 
 	// Add bonds to state
 	bonds := make([]Bond, 0)
@@ -222,6 +223,11 @@ func (b *BYUBabel) readSDF(f *os.File) error {
 }
 
 func (b *BYUBabel) outputReaction(outputFile string) error {
+	split := strings.SplitN(outputFile, ".", 2)
+	if len(split) < 2 || split[1] != "sdf" {
+		return errors.New("output filetype is not currently accepted")
+	}
+
 	var f *os.File
 	if outputFile != "" {
 		var err error
@@ -236,29 +242,30 @@ func (b *BYUBabel) outputReaction(outputFile string) error {
 	for _, s := range b.reaction.States() {
 		outputState(f, s)
 	}
-
-	for _, state := range b.reaction.States() {
-		f.WriteString("\n")
-		f.WriteString("\n")
-		f.WriteString("\n")
-		f.WriteString(fmt.Sprintln(len(state.Atoms()), len(state.bonds)))
-		for _, atom := range state.Atoms() {
-			f.WriteString(fmt.Sprintln(atom.X(), atom.Y(), atom.Z(), atom.Element()))
-		}
-		for _, bond := range state.Bonds() {
-			partial := 0
-			if bond.partial {
-				partial = 1
-			}
-			f.WriteString(fmt.Sprintln(state.getAtomIndex(bond.atom1)+1, state.getAtomIndex(bond.atom2)+1, bond.order, partial))
-		}
-		f.WriteString("M  END\n")
-		f.WriteString("$$$$\n")
-	}
 	return nil
 }
 
-func outputState(f *os.File, s State) error {
-
+func outputState(f *os.File, state State) error {
+	f.WriteString("\n")
+	f.WriteString("\n")
+	f.WriteString("\n")
+	f.WriteString(fmt.Sprintln(len(state.Atoms()), len(state.bonds)))
+	for _, atom := range state.Atoms() {
+		f.WriteString(fmt.Sprintln(atom.X(), atom.Y(), atom.Z(), atom.Element()))
+	}
+	for _, bond := range state.Bonds() {
+		partial := 0
+		if bond.partial {
+			partial = 1
+		}
+		f.WriteString(fmt.Sprintln(state.getAtomIndex(bond.atom1)+1, state.getAtomIndex(bond.atom2)+1, bond.order, partial))
+		// order := float64(bond.order)
+		// if bond.partial {
+		// 	order += 0.5
+		// }
+		// f.WriteString(fmt.Sprintln(state.getAtomIndex(bond.atom1)+1, state.getAtomIndex(bond.atom2)+1, order))
+	}
+	f.WriteString("M  END\n")
+	f.WriteString("$$$$\n")
 	return nil
 }
