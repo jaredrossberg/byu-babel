@@ -6,18 +6,20 @@ While building iORA, it was found that [OpenBabel](http://openbabel.org/wiki/Mai
 
 ## How to run BYU-Babel
 
-1. [Download](https://golang.org) and install the Go programming language
+1. [Download](https://www.python.org/downloads/) and install the Python programming language
 2. Download or clone this repository
-3. Compile the project into an executable with the `go build` or `go install` command
-4. Run the executable using the following format: `./byu-babel --input <filename> --output <filename>` (If no output is specified, the output will print to stdout)
+3. Open the repo folder in a terminal or cmd window
+3. Run this program using the following example formats: 
+    - `python . --input <filename> --output <filename>`
+    - `python __main__.py -i <filename> -o <filename>`
+
+Note: (If no output is specified, the output will print to stdout)
 
 ## Supported Filetypes
 BYU-Babel currently supports the following file formats
 
 Inputs
 - xyz
-- sdf
-- mol
 
 Outputs
 - sdf
