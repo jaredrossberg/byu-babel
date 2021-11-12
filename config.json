@@ -1,0 +1,76 @@
+{
+    "distance-criteria": [
+        {
+            "element1": "C",
+            "element2": "C",
+            "bond-formation": [
+                {
+                    "bond-strength": 3,
+                    "min-distance": 0,
+                    "max-distance": 1.24
+                },
+                {
+                    "bond-strength": 2.5,
+                    "min-distance": 1.24,
+                    "max-distance": 1.28
+                },
+                {
+                    "bond-strength": 2,
+                    "min-distance": 1.28,
+                    "max-distance": 1.36
+                },
+                {
+                    "bond-strength": 1.5,
+                    "min-distance": 1.36,
+                    "max-distance": 1.44
+                },
+                {
+                    "bond-strength": 1,
+                    "min-distance": 1.44,
+                    "max-distance": 1.61
+                },
+                {
+                    "bond-strength": 0.5,
+                    "min-distance": 1.61,
+                    "max-distance": 1.89
+                }
+            ],
+            "offset": 0
+        },
+        {
+            "element1": "C",
+            "element2": "H",
+            "bond-formation": [
+                {
+                    "bond-strength": 1,
+                    "min-distance": 0,
+                    "max-distance": 1.14
+                },
+                {
+                    "bond-strength": 0.5,
+                    "min-distance": 1.14,
+                    "max-distance": 1.37
+                }
+            ],
+            "offset": 0
+        },
+        {
+            "element1": "H",
+            "element2": "H",
+            "bond-formation": [
+                {
+                    "bond-strength": 1,
+                    "min-distance": 0,
+                    "max-distance": 0.63
+                },
+                {
+                    "bond-strength": 0.5,
+                    "min-distance": 0.63,
+                    "max-distance": 1.0
+                }
+            ],
+            "offset": 0
+        }
+
+    ]
+}
