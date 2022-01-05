@@ -20,6 +20,8 @@ class BYUBabel:
         file_type = self.input_file.split('.',1)[1]
         if file_type == 'xyz':
             self._parse_xyz()
+        elif file_type == 'sdf':
+            self._parse_sdf()
         else:
             raise Exception('File type not supported')
         pass
@@ -62,10 +64,9 @@ class BYUBabel:
 
     def _calculate_state(self, state: State) -> list[Bond]:
         num_atoms = len(state.atoms)
-        distances = [ [0]*num_atoms for _ in range(num_atoms) ]
-        bond_matrix = [ [0]*num_atoms for _ in range(num_atoms) ]
 
         # Fill distance matrix
+        distances = [ [0]*num_atoms for _ in range(num_atoms) ]
         for i in range(num_atoms):
             for j in range(num_atoms):
                 if i != j and distances[i][j] == 0:
@@ -74,17 +75,24 @@ class BYUBabel:
                     distances[j][i] = dist
 
         # Fill bond matrix
+        bond_matrix = [ [0]*num_atoms for _ in range(num_atoms) ]
         for i in range(num_atoms):
             for j in range(num_atoms):
                 if i == j or bond_matrix[i][j] != 0:
                     continue
-                atom1 = state.atoms[i]
-                atom2 = state.atoms[j]
-                dist = distances[i][j]
 
-                cp = self.config[atom1.element][atom2.element]
-                for x in cp.bond_distances:
-                    if x['min']+cp.offset < dist and dist <= x['max']+cp.offset:
+                element1 = state.atoms[i].element
+                element2 = state.atoms[j].element
+
+                # Handles scenario where config file does not include pairing distances between elements
+                # Currently does not throw an error, and continues silently
+                if not element1 in self.config or not element2 in self.config[element1]:
+                    break
+
+                config_pair = self.config[element1][element2]
+                dist = distances[i][j] - config_pair.offset
+                for x in config_pair.bond_distances:
+                    if x['min'] < dist and dist <= x['max']:
                         bond_matrix[i][j] = x['strength']
                         break
                 bond_matrix[j][i] = bond_matrix[i][j]
@@ -95,10 +103,7 @@ class BYUBabel:
             for j in range(i+1, num_atoms):
                 if bond_matrix[i][j] == 0:
                     continue
-                atom1 = state.atoms[i]
-                atom2 = state.atoms[j]
-                order = bond_matrix[i][j]
-                bonds.append(Bond(atom1, atom2, order))
+                bonds.append(Bond(state.atoms[i], state.atoms[j], bond_matrix[i][j]))
         return bonds
 
     def _parse_xyz(self):
@@ -112,8 +117,10 @@ class BYUBabel:
             words = line.split('\t')
             if len(words) == 1:
                 words = line.split(' ')
+            while("" in words) :
+                words.remove("")
             
-            if line == '':
+            if line == '' or line == '\n':
                 continue
             elif len(words) > 4 and count == 0 and num_elements > 0:
                 continue
@@ -140,6 +147,60 @@ class BYUBabel:
                 count = 0
                 atoms = []
 
+        pass
+
+    def _parse_sdf(self):
+        f = open(self.input_file)
+
+        ignore_lines_start = 3
+        ignore_lines_end = 2
+        num_atoms = -1
+        num_bonds = -1
+        array_atoms = []
+
+        for line in f.readlines():
+            words = line.split('\t')
+            if len(words) == 1:
+                words = line.split(' ')
+            while("" in words) :
+                words.remove("")
+
+            if ignore_lines_start > 0:
+                ignore_lines_start -= 1
+            elif num_atoms < 0 and num_bonds < 0:
+                if len(words) < 2:
+                    self.malformed_file()
+                try:
+                    num_atoms = int(words[0])
+                    num_bonds = int(words[1])
+                except:
+                    self.malformed_file()
+            elif num_atoms > 0:
+                if len(words) < 4:
+                    self.malformed_file()
+                try:
+                    element = words[3]
+                    x = float(words[0])
+                    y = float(words[1])
+                    z = float(words[2])
+                    array_atoms.append(Atom(element, x, y, z))
+                    num_atoms -= 1
+                except:
+                    self.malformed_file
+            elif num_bonds > 0:
+                num_bonds -= 1
+            elif ignore_lines_end > 0:
+                ignore_lines_end -= 1
+
+            if ignore_lines_start == 0 and num_atoms == 0 and num_bonds == 0:
+                if ignore_lines_end == 1:
+                    self.reaction.addState(State(array_atoms))
+                elif ignore_lines_end == 0:
+                    ignore_lines_start = 3
+                    ignore_lines_end = 2
+                    num_atoms = -1
+                    num_bonds = -1
+                    array_atoms = []
         pass
 
     def malformed_file(self):
@@ -170,7 +231,7 @@ class BYUBabel:
         for atom in state.atoms:
             print('{:>10f}{:>10f}{:>10f} {:<4}'.format(atom.x, atom.y, atom.z, atom.element))
         for bond in state.bonds:
-            print('{:>3}{:>3}{:>3}{:>3}'.format(state.get_atom_index(bond.atom1)+1, state.get_atom_index(bond.atom2)+1, int(bond.order), 1 if bond.order % 1 > 0 else 0))
+            print('{:>4}{:>5}{:>5}'.format(state.get_atom_index(bond.atom1)+1, state.get_atom_index(bond.atom2)+1, bond.order))
         print('M  END')
         print('$$$$')
         pass
