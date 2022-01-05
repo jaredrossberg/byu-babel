@@ -20,6 +20,7 @@ BYU-Babel currently supports the following file formats
 
 Inputs
 - xyz
+- sdf
 
 Outputs
 - sdf
