@@ -229,7 +229,7 @@ class BYUBabel:
         print('\n\n')
         print('{:>3}{:>3}  0  0  0  0  0  0  0  0999 V2000'.format(len(state.atoms), len(state.bonds)))
         for atom in state.atoms:
-            print('{:>10f}{:>10f}{:>10f} {:<4}'.format(atom.x, atom.y, atom.z, atom.element))
+            print('{:>12f}{:>12f}{:>12f} {:<4}'.format(atom.x, atom.y, atom.z, atom.element))
         for bond in state.bonds:
             print('{:>4}{:>5}{:>5}'.format(state.get_atom_index(bond.atom1)+1, state.get_atom_index(bond.atom2)+1, bond.order))
         print('M  END')
