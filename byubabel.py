@@ -12,10 +12,10 @@ from dataobjects import Atom
 from dataobjects import Bond
 
 class BYUBabel:
-    def __init__(self, input_file):
+    def __init__(self, input_file, config_file):
         self.input_file = input_file
         self.reaction = Reaction()
-        self._load_config()
+        self._load_config(config_file)
 
         file_type = self.input_file.split('.',1)[1]
         if file_type == 'xyz':
@@ -34,8 +34,8 @@ class BYUBabel:
             self.offset = offset
             pass
 
-    def _load_config(self):
-        f = open('config.json')
+    def _load_config(self, config_file):
+        f = open(config_file)
         self.config = {}
         for pair in json.load(f)['distance-criteria']:
             element1 = pair['element1']

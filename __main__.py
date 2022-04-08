@@ -1,4 +1,5 @@
 import sys
+import os
 from byubabel import BYUBabel
 
 # Print error messages to stderr
@@ -33,10 +34,12 @@ def main():
         input_file = input('Input file: ')
     if output_file == '':
         output_file = input('Output file (press ENTER to print to console): ')
+
+    config_file = os.path.dirname(__file__) + '/config.json'
     
     # Run program on file and print to output file
     try:
-        BYUBabel(input_file).calculate().write_reaction(output_file)
+        BYUBabel(input_file, config_file).calculate().write_reaction(output_file)
     except Exception as err:
         print(err)
         sys.exit(1)
