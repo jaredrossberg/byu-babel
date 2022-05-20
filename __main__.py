@@ -42,6 +42,7 @@ def main():
         BYUBabel(input_file, config_file).calculate().write_reaction(output_file)
     except Exception as err:
         print(err)
+        print(err.__traceback__)
         sys.exit(1)
 
     sys.exit(0)

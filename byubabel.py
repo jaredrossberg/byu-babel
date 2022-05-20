@@ -82,6 +82,22 @@ class BYUBabel:
         f.close()
 
         f = open(config_file)
+        self.frozen_forever = {}
+        for frozen_bond in json.load(f)['frozen-forever']:
+            atom1 = frozen_bond['atom1'] - 1
+            atom2 = frozen_bond['atom2'] - 1
+            bond_strength = frozen_bond['bond-strength']
+
+            if not atom1 in self.frozen_forever:
+                self.frozen_forever[atom1] = {}
+            if not atom2 in self.frozen_forever:
+                self.frozen_forever[atom2] = {}
+            
+            self.frozen_forever[atom1][atom2] = bond_strength
+            self.frozen_forever[atom2][atom1] = bond_strength
+        f.close()
+
+        f = open(config_file)
         self.frozen_after= {}
         for frozen_bond in json.load(f)['frozen-after']:
             atom1 = frozen_bond['atom1'] - 1
@@ -100,15 +116,15 @@ class BYUBabel:
 
     def calculate(self):
         for i, state in enumerate(self.reaction.states):
-            frozen_bonds = []
             if i < self.transition_state - self.window:
-                frozen_bonds = self.frozen_before
+                state.bonds = self._calculate_state(state, self.frozen_before, False)
             elif i > self.transition_state + self.window:
-                frozen_bonds = self.frozen_after
-            state.bonds = self._calculate_state(state, frozen_bonds)
+                state.bonds = self._calculate_state(state, self.frozen_after, False)
+            else:
+                state.bonds = self._calculate_state(state, [], True)
         return self
 
-    def _calculate_state(self, state: State, frozen_bonds) -> list[Bond]:
+    def _calculate_state(self, state: State, frozen_bonds, is_during_transition) -> list[Bond]:
         num_atoms = len(state.atoms)
 
         # Fill distance matrix
@@ -123,11 +139,13 @@ class BYUBabel:
         # Fill bond matrix
         bond_matrix = [ [0]*num_atoms for _ in range(num_atoms) ]
 
-        if len(frozen_bonds) > 0:
-            for i in frozen_bonds:
-                for j in frozen_bonds[i]:
-                    bond_matrix[i][j] = frozen_bonds[i][j]
-        else:
+        for i in self.frozen_forever:
+            for j in self.frozen_forever[i]:
+                bond_matrix[i][j] = self.frozen_forever[i][j]
+        for i in frozen_bonds:
+            for j in frozen_bonds[i]:
+                bond_matrix[i][j] = frozen_bonds[i][j]
+        if is_during_transition:
             for i in range(num_atoms):
                 for j in range(num_atoms):
                     if i == j or bond_matrix[i][j] != 0:

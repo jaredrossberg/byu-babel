@@ -1,92 +1,54 @@
 {
-    "transition-state": 275,
+    "transition-state": 1020,
     "window": 50,
-    "frozen-before": [
+    "frozen-forever": [
         {
-            "atom1": 3,
-            "atom2": 5,
+            "atom1": 1,
+            "atom2": 2,
             "bond-strength": 1
         },
         {
-            "atom1": 3,
+            "atom1": 1,
+            "atom2": 3,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
             "atom2": 4,
             "bond-strength": 1
         },
         {
-            "atom1": 6,
-            "atom2": 1,
+            "atom1": 1,
+            "atom2": 5,
             "bond-strength": 1
         },
         {
-            "atom1": 1,
+            "atom1": 5,
+            "atom2": 6,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 5,
             "atom2": 7,
             "bond-strength": 1
         },
         {
-            "atom1": 1,
-            "atom2": 2,
-            "bond-strength": 1
-        },
+            "atom1": 9,
+            "atom2": 10,
+            "bond-strength": 3
+        }
+    ],
+    "frozen-before": [
         {
-            "atom1": 1,
-            "atom2": 2,
-            "bond-strength": 2
-        },
-        {
-            "atom1": 2,
-            "atom2": 9,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 2,
+            "atom1": 5,
             "atom2": 8,
             "bond-strength": 1
         }
     ],
     "frozen-after": [
         {
-            "atom1": 1,
-            "atom2": 2,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 1,
-            "atom2": 3,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 6,
-            "atom2": 1,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 1,
-            "atom2": 7,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 2,
-            "atom2": 3,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 2,
-            "atom2": 8,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 2,
+            "atom1": 5,
             "atom2": 9,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 3,
-            "atom2": 4,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 3,
-            "atom2": 5,
             "bond-strength": 1
         }
     ],
