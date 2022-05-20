@@ -1,18 +1,25 @@
 {
-    "frozen-bonds": [
+    "transition-state": 275,
+    "window": 50,
+    "frozen-before": [
         {
-            "atom1": 2,
-            "atom2": 3,
+            "atom1": 3,
+            "atom2": 5,
             "bond-strength": 1
         },
         {
-            "atom1": 2,
+            "atom1": 3,
             "atom2": 4,
             "bond-strength": 1
         },
         {
-            "atom1": 2,
-            "atom2": 5,
+            "atom1": 6,
+            "atom2": 1,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 7,
             "bond-strength": 1
         },
         {
@@ -22,22 +29,64 @@
         },
         {
             "atom1": 1,
-            "atom2": 6,
+            "atom2": 2,
+            "bond-strength": 2
+        },
+        {
+            "atom1": 2,
+            "atom2": 9,
             "bond-strength": 1
         },
         {
-            "atom1": 11,
-            "atom2": 12,
+            "atom1": 2,
+            "atom2": 8,
+            "bond-strength": 1
+        }
+    ],
+    "frozen-after": [
+        {
+            "atom1": 1,
+            "atom2": 2,
             "bond-strength": 1
         },
         {
-            "atom1": 11,
-            "atom2": 13,
+            "atom1": 1,
+            "atom2": 3,
             "bond-strength": 1
         },
         {
-            "atom1": 11,
-            "atom2": 15,
+            "atom1": 6,
+            "atom2": 1,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 7,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 3,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 8,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 9,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 3,
+            "atom2": 4,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 3,
+            "atom2": 5,
             "bond-strength": 1
         }
     ],
@@ -86,11 +135,11 @@
                 {
                     "bond-strength": 1,
                     "min-distance": 0,
-                    "max-distance": 1.25
+                    "max-distance": 1.14
                 },
                 {
                     "bond-strength": 0.5,
-                    "min-distance": 1.28,
+                    "min-distance": 1.14,
                     "max-distance": 1.37
                 }
             ],
@@ -281,26 +330,26 @@
                 {
                     "bond-strength": 2.5,
                     "min-distance": 1.1583,
-                    "max-distance": 1.155
+                    "max-distance": 1.194529
                 },
                 {
                     "bond-strength": 2,
-                    "min-distance": 1.155,
-                    "max-distance": 1.30
+                    "min-distance": 1.194529,
+                    "max-distance": 1.287
                 },
                 {
                     "bond-strength": 1.5,
-                    "min-distance": 1.30,
-                    "max-distance": 1.33
+                    "min-distance": 1.287,
+                    "max-distance": 1.3442
                 },
                 {
                     "bond-strength": 1,
-                    "min-distance": 1.33,
-                    "max-distance": 1.58
+                    "min-distance": 1.3442,
+                    "max-distance": 1.5158
                 },
                 {
                     "bond-strength": 0.5,
-                    "min-distance": 1.58,
+                    "min-distance": 1.5158,
                     "max-distance": 1.776938941
                 }
             ],
@@ -973,23 +1022,6 @@
                     "bond-strength": 0.5,
                     "min-distance": 2.8196,
                     "max-distance": 3.214970917
-                }
-            ],
-            "offset": 0
-        },
-        {
-            "element1": "Al",
-            "element2": "H",
-            "bond-formation": [
-                {
-                    "bond-strength": 1,
-                    "min-distance": 0,
-                    "max-distance": 1.64
-                },
-                {
-                    "bond-strength": 0.5,
-                    "min-distance": 1.64,
-                    "max-distance": 1.84
                 }
             ],
             "offset": 0

@@ -58,28 +58,57 @@ class BYUBabel:
         f.close()
 
         f = open(config_file)
-        self.frozen_bonds = {}
-        for frozen_bond in json.load(f)['frozen-bonds']:
+        self.transition_state = json.load(f)['transition-state']
+        f.close()
+
+        f = open(config_file)
+        self.window = json.load(f)['window']
+        f.close()
+
+        f = open(config_file)
+        self.frozen_before = {}
+        for frozen_bond in json.load(f)['frozen-before']:
             atom1 = frozen_bond['atom1'] - 1
             atom2 = frozen_bond['atom2'] - 1
             bond_strength = frozen_bond['bond-strength']
 
-            if not atom1 in self.frozen_bonds:
-                self.frozen_bonds[atom1] = {}
-            if not atom2 in self.frozen_bonds:
-                self.frozen_bonds[atom2] = {}
+            if not atom1 in self.frozen_before:
+                self.frozen_before[atom1] = {}
+            if not atom2 in self.frozen_before:
+                self.frozen_before[atom2] = {}
             
-            self.frozen_bonds[atom1][atom2] = bond_strength
-            self.frozen_bonds[atom2][atom1] = bond_strength
+            self.frozen_before[atom1][atom2] = bond_strength
+            self.frozen_before[atom2][atom1] = bond_strength
+        f.close()
+
+        f = open(config_file)
+        self.frozen_after= {}
+        for frozen_bond in json.load(f)['frozen-after']:
+            atom1 = frozen_bond['atom1'] - 1
+            atom2 = frozen_bond['atom2'] - 1
+            bond_strength = frozen_bond['bond-strength']
+
+            if not atom1 in self.frozen_after:
+                self.frozen_after[atom1] = {}
+            if not atom2 in self.frozen_after:
+                self.frozen_after[atom2] = {}
+            
+            self.frozen_after[atom1][atom2] = bond_strength
+            self.frozen_after[atom2][atom1] = bond_strength
         f.close()
         pass
 
     def calculate(self):
-        for state in self.reaction.states:
-            state.bonds = self._calculate_state(state)
+        for i, state in enumerate(self.reaction.states):
+            frozen_bonds = []
+            if i < self.transition_state - self.window:
+                frozen_bonds = self.frozen_before
+            elif i > self.transition_state + self.window:
+                frozen_bonds = self.frozen_after
+            state.bonds = self._calculate_state(state, frozen_bonds)
         return self
 
-    def _calculate_state(self, state: State) -> list[Bond]:
+    def _calculate_state(self, state: State, frozen_bonds) -> list[Bond]:
         num_atoms = len(state.atoms)
 
         # Fill distance matrix
@@ -93,29 +122,32 @@ class BYUBabel:
 
         # Fill bond matrix
         bond_matrix = [ [0]*num_atoms for _ in range(num_atoms) ]
-        for i in self.frozen_bonds:
-            for j in self.frozen_bonds[i]:
-                bond_matrix[i][j] = self.frozen_bonds[i][j]
-        for i in range(num_atoms):
-            for j in range(num_atoms):
-                if i == j or bond_matrix[i][j] != 0:
-                    continue
 
-                element1 = state.atoms[i].element
-                element2 = state.atoms[j].element
+        if len(frozen_bonds) > 0:
+            for i in frozen_bonds:
+                for j in frozen_bonds[i]:
+                    bond_matrix[i][j] = frozen_bonds[i][j]
+        else:
+            for i in range(num_atoms):
+                for j in range(num_atoms):
+                    if i == j or bond_matrix[i][j] != 0:
+                        continue
 
-                # Handles scenario where config file does not include pairing distances between elements
-                # Currently does not throw an error, and continues silently
-                if not element1 in self.config or not element2 in self.config[element1]:
-                    break
+                    element1 = state.atoms[i].element
+                    element2 = state.atoms[j].element
 
-                config_pair = self.config[element1][element2]
-                dist = distances[i][j] - config_pair.offset
-                for x in config_pair.bond_distances:
-                    if x['min'] < dist and dist <= x['max']:
-                        bond_matrix[i][j] = x['strength']
+                    # Handles scenario where config file does not include pairing distances between elements
+                    # Currently does not throw an error, and continues silently
+                    if not element1 in self.config or not element2 in self.config[element1]:
                         break
-                bond_matrix[j][i] = bond_matrix[i][j]
+
+                    config_pair = self.config[element1][element2]
+                    dist = distances[i][j] - config_pair.offset
+                    for x in config_pair.bond_distances:
+                        if x['min'] < dist and dist <= x['max']:
+                            bond_matrix[i][j] = x['strength']
+                            break
+                    bond_matrix[j][i] = bond_matrix[i][j]
 
         # Add bonds to state
         bonds = []
