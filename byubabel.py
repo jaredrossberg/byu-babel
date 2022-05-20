@@ -55,6 +55,23 @@ class BYUBabel:
                     'max': bond['max-distance']})
             self.config[element1][element2] = cp
             self.config[element2][element1] = cp
+        f.close()
+
+        f = open(config_file)
+        self.frozen_bonds = {}
+        for frozen_bond in json.load(f)['frozen-bonds']:
+            atom1 = frozen_bond['atom1'] - 1
+            atom2 = frozen_bond['atom2'] - 1
+            bond_strength = frozen_bond['bond-strength']
+
+            if not atom1 in self.frozen_bonds:
+                self.frozen_bonds[atom1] = {}
+            if not atom2 in self.frozen_bonds:
+                self.frozen_bonds[atom2] = {}
+            
+            self.frozen_bonds[atom1][atom2] = bond_strength
+            self.frozen_bonds[atom2][atom1] = bond_strength
+        f.close()
         pass
 
     def calculate(self):
@@ -76,6 +93,9 @@ class BYUBabel:
 
         # Fill bond matrix
         bond_matrix = [ [0]*num_atoms for _ in range(num_atoms) ]
+        for i in self.frozen_bonds:
+            for j in self.frozen_bonds[i]:
+                bond_matrix[i][j] = self.frozen_bonds[i][j]
         for i in range(num_atoms):
             for j in range(num_atoms):
                 if i == j or bond_matrix[i][j] != 0:
