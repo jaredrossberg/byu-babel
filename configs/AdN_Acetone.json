@@ -1,9 +1,77 @@
 {
-    "transition-state": -1,
-    "window": 0,
-    "frozen-forever": [],
-    "frozen-before": [],
-    "frozen-after": [],
+    "transition-state": 435,
+    "window": 10,
+    "frozen-forever": [
+        {
+            "atom1": 1,
+            "atom2": 2,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 6,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 3,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 4,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 5,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 6,
+            "atom2": 7,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 6,
+            "atom2": 8,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 6,
+            "atom2": 9,
+            "bond-strength": 1
+        }
+    ],
+    "frozen-before": [
+        {
+            "atom1": 11,
+            "atom2": 12,
+            "bond-strength": 3
+        },
+        {
+            "atom1": 1,
+            "atom2": 10,
+            "bond-strength": 2
+        }
+    ],
+    "frozen-after": [
+        {
+            "atom1": 11,
+            "atom2": 12,
+            "bond-strength": 2
+        },
+        {
+            "atom1": 11,
+            "atom2": 1,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 10,
+            "bond-strength": 1
+        }
+    ],
     "distance-criteria": [
         {
             "element1": "C",

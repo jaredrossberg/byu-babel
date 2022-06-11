@@ -35,8 +35,12 @@ def main():
     if output_file == '':
         output_file = input('Output file (press ENTER to print to console): ')
 
-    config_file = os.path.dirname(__file__) + '/config.json'
     
+    config_file = os.path.dirname(__file__) + '/configs/' + os.path.splitext(os.path.basename(input_file))[0] + '.json'
+    if not os.path.exists(config_file):
+        print('Custom config file not found. Using default config')
+        config_file = os.path.dirname(__file__) + '/config.json'
+
     # Run program on file and print to output file
     try:
         BYUBabel(input_file, config_file).calculate().write_reaction(output_file)

@@ -1,7 +1,48 @@
 {
     "transition-state": -1,
     "window": 0,
-    "frozen-forever": [],
+    "frozen-forever": [
+        {
+            "atom1": 1,
+            "atom2": 2,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 3,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 4,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 5,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 5,
+            "atom2": 6,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 5,
+            "atom2": 7,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 5,
+            "atom2": 8,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 9,
+            "atom2": 10,
+            "bond-strength": 3
+        }
+    ],
     "frozen-before": [],
     "frozen-after": [],
     "distance-criteria": [
