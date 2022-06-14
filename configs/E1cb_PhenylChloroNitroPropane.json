@@ -40,17 +40,17 @@
         {
             "atom1": 9,
             "atom2": 10,
-            "bond-strength": 1
+            "bond-strength": 1.5
         },
         {
             "atom1": 9,
             "atom2": 11,
-            "bond-strength": 2
+            "bond-strength": 1.5
         },
         {
             "atom1": 10,
             "atom2": 12,
-            "bond-strength": 2
+            "bond-strength": 1.5
         },
         {
             "atom1": 10,
@@ -60,7 +60,7 @@
         {
             "atom1": 11,
             "atom2": 14,
-            "bond-strength": 1
+            "bond-strength": 1.5
         },
         {
             "atom1": 11,
@@ -70,7 +70,7 @@
         {
             "atom1": 12,
             "atom2": 16,
-            "bond-strength": 1
+            "bond-strength": 1.5
         },
         {
             "atom1": 12,
@@ -80,7 +80,7 @@
         {
             "atom1": 14,
             "atom2": 16,
-            "bond-strength": 2
+            "bond-strength": 1.5
         },
         {
             "atom1": 14,

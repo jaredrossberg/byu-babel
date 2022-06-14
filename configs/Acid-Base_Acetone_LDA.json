@@ -4,17 +4,7 @@
     "frozen-forever": [
         {
             "atom1": 1,
-            "atom2": 2,
-            "bond-strength": 2
-        },
-        {
-            "atom1": 1,
             "atom2": 5,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 1,
-            "atom2": 9,
             "bond-strength": 1
         },
         {
@@ -145,16 +135,36 @@
     ],
     "frozen-before": [
         {
+            "atom1": 1,
+            "atom2": 2,
+            "bond-strength": 2
+        },
+        {
             "atom1": 9,
             "atom2": 12,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 9,
             "bond-strength": 1
         }
     ],
     "frozen-after": [
         {
+            "atom1": 1,
+            "atom2": 2,
+            "bond-strength": 1.5
+        },
+        {
             "atom1": 12,
             "atom2": 21,
             "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 9,
+            "bond-strength": 1.5
         }
     ],
     "distance-criteria": [
