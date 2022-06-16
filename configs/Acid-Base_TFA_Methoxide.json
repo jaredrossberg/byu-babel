@@ -23,16 +23,6 @@
             "bond-strength": 1
         },
         {
-            "atom1": 2,
-            "atom2": 6,
-            "bond-strength": 2
-        },
-        {
-            "atom1": 2,
-            "atom2": 7,
-            "bond-strength": 1
-        },
-        {
             "atom1": 9,
             "atom2": 11,
             "bond-strength": 1
@@ -58,14 +48,33 @@
             "atom1": 7,
             "atom2": 8,
             "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 6,
+            "bond-strength": 2
+        },
+        {
+            "atom1": 2,
+            "atom2": 7,
+            "bond-strength": 1
         }
-        
     ],
     "frozen-after": [
         {
             "atom1": 13,
             "atom2": 8,
             "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 6,
+            "bond-strength": 1.5
+        },
+        {
+            "atom1": 2,
+            "atom2": 7,
+            "bond-strength": 1.5
         }
     ],
     "distance-criteria": [
