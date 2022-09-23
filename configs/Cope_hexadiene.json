@@ -126,11 +126,11 @@
                 {
                     "bond-strength": 2,
                     "min-distance": 1.28,
-                    "max-distance": 1.36
+                    "max-distance": 1.29
                 },
                 {
                     "bond-strength": 1.5,
-                    "min-distance": 1.36,
+                    "min-distance": 1.29,
                     "max-distance": 1.44
                 },
                 {
@@ -141,7 +141,7 @@
                 {
                     "bond-strength": 0.5,
                     "min-distance": 1.61,
-                    "max-distance": 1.89
+                    "max-distance": 2.15
                 }
             ],
             "offset": 0

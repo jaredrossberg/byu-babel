@@ -10,6 +10,7 @@ def eprint(*args, **kwargs):
 def main():
     input_file = ''
     output_file = ''
+    translation = {'x': 0, 'y': 0, 'z': 0}
     
     # Read and save command line arguments
     for i, arg in enumerate(sys.argv):
@@ -29,6 +30,30 @@ def main():
                 eprint('Output file must be provided')
                 sys.exit(1)
             output_file = sys.argv[i+1]
+        elif arg == '-x':
+            if translation['x'] != 0:
+                eprint('X axis translation already provided')
+                sys.exit(1)
+            elif i+1 >= len(sys.argv):
+                eprint('X axis translation not provided')
+                sys.exit(1)
+            translation['x'] = float(sys.argv[i+1])
+        elif arg == '-y':
+            if translation['y'] != 0:
+                eprint('Y axis translation already provided')
+                sys.exit(1)
+            elif i+1 >= len(sys.argv):
+                eprint('Y axis translation not provided')
+                sys.exit(1)
+            translation['y'] = float(sys.argv[i+1])
+        elif arg == '-z':
+            if translation['z'] != 0:
+                eprint('Z axis translation already provided')
+                sys.exit(1)
+            elif i+1 >= len(sys.argv):
+                eprint('Z axis translation not provided')
+                sys.exit(1)
+            translation['z'] = float(sys.argv[i+1])
         
     while input_file == '':
         input_file = input('Input file: ')
@@ -43,7 +68,7 @@ def main():
 
     # Run program on file and print to output file
     try:
-        BYUBabel(input_file, config_file).calculate().write_reaction(output_file)
+        BYUBabel(input_file, config_file, translation).calculate().write_reaction(output_file)
     except Exception as err:
         print(err)
         print(err.__traceback__)

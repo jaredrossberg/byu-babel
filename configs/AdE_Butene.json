@@ -1,6 +1,6 @@
 {
-    "transition-state": 1000,
-    "window": 50,
+    "transition-state": 154,
+    "window": 28,
     "frozen-forever": [
         {
             "atom1": 1,
@@ -251,7 +251,7 @@
                 {
                     "bond-strength": 0.5,
                     "min-distance": 1.5264,
-                    "max-distance": 1.742441391
+                    "max-distance": 1.80
                 }
             ],
             "offset": 0
@@ -420,7 +420,7 @@
                 {
                     "bond-strength": 0.5,
                     "min-distance": 2.0246,
-                    "max-distance": 2.357395173
+                    "max-distance": 2.83
                 }
             ],
             "offset": 0

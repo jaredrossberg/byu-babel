@@ -4,6 +4,16 @@
     "frozen-forever": [
         {
             "atom1": 1,
+            "atom2": 3,
+            "bond-strength": -1
+        },
+        {
+            "atom1": 2,
+            "atom2": 4,
+            "bond-strength": -1
+        },
+        {
+            "atom1": 1,
             "atom2": 5,
             "bond-strength": 1
         },
@@ -96,17 +106,17 @@
                 {
                     "bond-strength": 1.5,
                     "min-distance": 1.36,
-                    "max-distance": 1.44
+                    "max-distance": 1.55
                 },
                 {
                     "bond-strength": 1,
-                    "min-distance": 1.44,
+                    "min-distance": 1.55,
                     "max-distance": 1.61
                 },
                 {
                     "bond-strength": 0.5,
                     "min-distance": 1.61,
-                    "max-distance": 1.89
+                    "max-distance": 2.20
                 }
             ],
             "offset": 0

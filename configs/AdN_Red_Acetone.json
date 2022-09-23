@@ -80,6 +80,11 @@
             "atom1": 1,
             "atom2": 10,
             "bond-strength": 1
+        },
+        {
+            "atom1": 16,
+            "atom2": 10,
+            "bond-strength": 1
         }
     ],
     "distance-criteria": [
@@ -201,6 +206,23 @@
                     "bond-strength": 0.5,
                     "min-distance": 1.0176,
                     "max-distance": 1.2335607
+                }
+            ],
+            "offset": 0
+        },
+        {
+            "element1": "O",
+            "element2": "Li",
+            "bond-formation": [
+                {
+                    "bond-strength": 1,
+                    "min-distance": 0,
+                    "max-distance": 1.70
+                },
+                {
+                    "bond-strength": 0.5,
+                    "min-distance": 1.70,
+                    "max-distance": 1.85
                 }
             ],
             "offset": 0

@@ -1,7 +1,32 @@
 {
-    "transition-state": 175,
-    "window": 20,
+    "transition-state": 165,
+    "window": 35,
     "frozen-forever": [
+        {
+            "atom1": 1,
+            "atom2": 5,
+            "bond-strength": -1
+        },
+        {
+            "atom1": 1,
+            "atom2": 3,
+            "bond-strength": -1
+        },
+        {
+            "atom1": 2,
+            "atom2": 4,
+            "bond-strength": -1
+        },
+        {
+            "atom1": 3,
+            "atom2": 5,
+            "bond-strength": -1
+        },
+        {
+            "atom1": 4,
+            "atom2": 6,
+            "bond-strength": -1
+        },
         {
             "atom1": 1,
             "atom2": 7,
@@ -125,22 +150,22 @@
                 {
                     "bond-strength": 2,
                     "min-distance": 1.28,
-                    "max-distance": 1.36
+                    "max-distance": 1.34
                 },
                 {
                     "bond-strength": 1.5,
-                    "min-distance": 1.36,
-                    "max-distance": 1.44
+                    "min-distance": 1.34,
+                    "max-distance": 1.564
                 },
                 {
                     "bond-strength": 1,
-                    "min-distance": 1.44,
-                    "max-distance": 1.61
+                    "min-distance": 1.564,
+                    "max-distance": 1.566
                 },
                 {
                     "bond-strength": 0.5,
-                    "min-distance": 1.61,
-                    "max-distance": 1.89
+                    "min-distance": 1.565,
+                    "max-distance": 2.48
                 }
             ],
             "offset": 0

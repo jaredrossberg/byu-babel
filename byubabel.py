@@ -12,16 +12,16 @@ from dataobjects import Atom
 from dataobjects import Bond
 
 class BYUBabel:
-    def __init__(self, input_file, config_file):
+    def __init__(self, input_file, config_file, translation):
         self.input_file = input_file
         self.reaction = Reaction()
         self._load_config(config_file)
 
         file_type = self.input_file.split('.',1)[1]
         if file_type == 'xyz':
-            self._parse_xyz()
+            self._parse_xyz(translation)
         elif file_type == 'sdf':
-            self._parse_sdf()
+            self._parse_sdf(translation)
         else:
             raise Exception('File type not supported')
         pass
@@ -171,12 +171,12 @@ class BYUBabel:
         bonds = []
         for i in range(num_atoms):
             for j in range(i+1, num_atoms):
-                if bond_matrix[i][j] == 0:
+                if bond_matrix[i][j] <= 0:
                     continue
                 bonds.append(Bond(state.atoms[i], state.atoms[j], bond_matrix[i][j]))
         return bonds
 
-    def _parse_xyz(self):
+    def _parse_xyz(self, translation):
         f = open(self.input_file)
 
         num_elements = -1
@@ -204,9 +204,9 @@ class BYUBabel:
                 if len(words) < 4:
                     self.malformed_file()
                 try:
-                    x = float(words[1])
-                    y = float(words[2])
-                    z = float(words[3])
+                    x = float(words[1]) + translation['x']
+                    y = float(words[2]) + translation['y']
+                    z = float(words[3]) + translation['z']
                     atoms.append(Atom(words[0], x, y, z))
                     count += 1
                 except:
@@ -219,7 +219,7 @@ class BYUBabel:
 
         pass
 
-    def _parse_sdf(self):
+    def _parse_sdf(self, translation):
         f = open(self.input_file)
 
         ignore_lines_start = 3
@@ -250,9 +250,9 @@ class BYUBabel:
                     self.malformed_file()
                 try:
                     element = words[3]
-                    x = float(words[0])
-                    y = float(words[1])
-                    z = float(words[2])
+                    x = float(words[0]) + translation['x']
+                    y = float(words[1]) + translation['y']
+                    z = float(words[2]) + translation['z']
                     array_atoms.append(Atom(element, x, y, z))
                     num_atoms -= 1
                 except:

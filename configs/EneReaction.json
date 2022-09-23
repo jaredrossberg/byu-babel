@@ -1,15 +1,84 @@
 {
-    "transition-state": 75,
-    "window": 10,
+    "transition-state": 135,
+    "window": 30,
     "frozen-forever": [
         {
             "atom1": 1,
-            "atom2": 6,
+            "atom2": 9,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 8,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 4,
+            "atom2": 10,
             "bond-strength": 1
         },
         {
             "atom1": 1,
-            "atom2": 10,
+            "atom2": 2,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 5,
+            "atom2": 13,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 5,
+            "atom2": 12,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 3,
+            "atom2": 14,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 7,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 4,
+            "atom2": 11,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 3,
+            "atom2": 6,
+            "bond-strength": 1
+        }
+    ],
+    "frozen-before": [
+        {
+            "atom1": 1,
+            "atom2": 5,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 3,
+            "atom2": 4,
+            "bond-strength": 2
+        },
+        {
+            "atom1": 5,
+            "atom2": 15,
+            "bond-strength": 1
+        }
+    ],
+    "frozen-after": [
+        {
+            "atom1": 1,
+            "atom2": 5,
+            "bond-strength": 2
+        },
+        {
+            "atom1": 3,
+            "atom2": 4,
             "bond-strength": 1
         },
         {
@@ -18,60 +87,10 @@
             "bond-strength": 1
         },
         {
-            "atom1": 2,
-            "atom2": 4,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 2,
-            "atom2": 5,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 6,
-            "atom2": 7,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 6,
-            "atom2": 8,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 6,
-            "atom2": 9,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 10,
-            "atom2": 11,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 10,
-            "atom2": 12,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 10,
-            "atom2": 13,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 1,
-            "atom2": 2,
+            "atom1": 4,
+            "atom2": 15,
             "bond-strength": 1
         }
-    ],
-    "frozen-before": [
-        {
-            "atom1": 1,
-            "atom2": 14,
-            "bond-strength": 1
-        }
-    ],
-    "frozen-after": [
-        
     ],
     "distance-criteria": [
         {
@@ -81,31 +100,31 @@
                 {
                     "bond-strength": 3,
                     "min-distance": 0,
-                    "max-distance": 1.24
+                    "max-distance": 1.19
                 },
                 {
                     "bond-strength": 2.5,
-                    "min-distance": 1.24,
-                    "max-distance": 1.28
+                    "min-distance": 1.19,
+                    "max-distance": 1.2
                 },
                 {
                     "bond-strength": 2,
-                    "min-distance": 1.28,
-                    "max-distance": 1.36
+                    "min-distance": 1.2,
+                    "max-distance": 1.265
                 },
                 {
                     "bond-strength": 1.5,
-                    "min-distance": 1.36,
+                    "min-distance": 1.265,
                     "max-distance": 1.44
                 },
                 {
                     "bond-strength": 1,
                     "min-distance": 1.44,
-                    "max-distance": 1.61
+                    "max-distance": 1.615
                 },
                 {
                     "bond-strength": 0.5,
-                    "min-distance": 1.61,
+                    "min-distance": 1.615,
                     "max-distance": 1.89
                 }
             ],
@@ -123,7 +142,7 @@
                 {
                     "bond-strength": 0.5,
                     "min-distance": 1.14,
-                    "max-distance": 1.37
+                    "max-distance": 1.835
                 }
             ],
             "offset": 0

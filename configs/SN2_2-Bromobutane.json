@@ -332,32 +332,32 @@
                 {
                     "bond-strength": 3,
                     "min-distance": 0,
-                    "max-distance": 1.1583
+                    "max-distance": 1.14
                 },
                 {
                     "bond-strength": 2.5,
-                    "min-distance": 1.1583,
-                    "max-distance": 1.194529
+                    "min-distance": 1.14,
+                    "max-distance": 1.15
                 },
                 {
                     "bond-strength": 2,
-                    "min-distance": 1.194529,
-                    "max-distance": 1.287
+                    "min-distance": 1.15,
+                    "max-distance": 1.16
                 },
                 {
                     "bond-strength": 1.5,
-                    "min-distance": 1.287,
-                    "max-distance": 1.3442
+                    "min-distance": 1.16,
+                    "max-distance": 1.17
                 },
                 {
                     "bond-strength": 1,
-                    "min-distance": 1.3442,
+                    "min-distance": 1.17,
                     "max-distance": 1.5158
                 },
                 {
                     "bond-strength": 0.5,
                     "min-distance": 1.5158,
-                    "max-distance": 1.776938941
+                    "max-distance": 1.88
                 }
             ],
             "offset": 0
@@ -435,7 +435,7 @@
                 {
                     "bond-strength": 0.5,
                     "min-distance": 2.0246,
-                    "max-distance": 2.357395173
+                    "max-distance": 2.58
                 }
             ],
             "offset": 0

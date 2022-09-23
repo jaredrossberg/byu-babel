@@ -1,7 +1,17 @@
 {
-    "transition-state": 75,
-    "window": 10,
+    "transition-state": 0,
+    "window": 0,
     "frozen-forever": [
+        {
+            "atom1": 1,
+            "atom2": 2,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 3,
+            "bond-strength": 1
+        },
         {
             "atom1": 1,
             "atom2": 6,
@@ -9,70 +19,27 @@
         },
         {
             "atom1": 1,
-            "atom2": 10,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 2,
-            "atom2": 3,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 2,
             "atom2": 4,
             "bond-strength": 1
         },
         {
-            "atom1": 2,
+            "atom1": 4,
             "atom2": 5,
             "bond-strength": 1
         },
         {
-            "atom1": 6,
+            "atom1": 4,
             "atom2": 7,
             "bond-strength": 1
         },
         {
-            "atom1": 6,
+            "atom1": 4,
             "atom2": 8,
             "bond-strength": 1
-        },
-        {
-            "atom1": 6,
-            "atom2": 9,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 10,
-            "atom2": 11,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 10,
-            "atom2": 12,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 10,
-            "atom2": 13,
-            "bond-strength": 1
-        },
-        {
-            "atom1": 1,
-            "atom2": 2,
-            "bond-strength": 1
-        }
+        }        
     ],
-    "frozen-before": [
-        {
-            "atom1": 1,
-            "atom2": 14,
-            "bond-strength": 1
-        }
-    ],
-    "frozen-after": [
-        
-    ],
+    "frozen-before": [],
+    "frozen-after": [],
     "distance-criteria": [
         {
             "element1": "C",
