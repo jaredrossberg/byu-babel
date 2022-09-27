@@ -58,7 +58,12 @@ def main():
     while input_file == '':
         input_file = input('Input file: ')
     if output_file == '':
-        output_file = input('Output file (press ENTER to print to console): ')
+        yes_or_no = input('No output file provided. Write to input file? (y/n): ')
+        if yes_or_no.lower() == 'y' or yes_or_no.lower() == 'yes':
+            output_file = input_file
+        else:
+            print('No output provided. Exiting...')
+            sys.exit(0)
 
     
     config_file = os.path.dirname(__file__) + '/configs/' + os.path.splitext(os.path.basename(input_file))[0] + '.json'
