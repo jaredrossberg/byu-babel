@@ -63,23 +63,13 @@
             "element2": "C",
             "bond-formation": [
                 {
-                    "bond-strength": 3,
-                    "min-distance": 0,
-                    "max-distance": 1.24
-                },
-                {
-                    "bond-strength": 2.5,
-                    "min-distance": 1.24,
-                    "max-distance": 1.28
-                },
-                {
                     "bond-strength": 2,
-                    "min-distance": 1.28,
-                    "max-distance": 1.36
+                    "min-distance": 0,
+                    "max-distance": 1.35
                 },
                 {
                     "bond-strength": 1.5,
-                    "min-distance": 1.36,
+                    "min-distance": 1.35,
                     "max-distance": 1.44
                 },
                 {
@@ -90,7 +80,7 @@
                 {
                     "bond-strength": 0.5,
                     "min-distance": 1.61,
-                    "max-distance": 1.89
+                    "max-distance": 2.715
                 }
             ],
             "offset": 0

@@ -85,7 +85,7 @@
                 {
                     "bond-strength": 0.5,
                     "min-distance": 1.61,
-                    "max-distance": 1.99
+                    "max-distance": 2.26
                 }
             ],
             "offset": 0

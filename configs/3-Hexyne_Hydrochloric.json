@@ -71,6 +71,16 @@
             "atom1": 13,
             "atom2": 15,
             "bond-strength": 1
+        },
+        {
+            "atom1": 10,
+            "atom2": 18,
+            "bond-strength": -1
+        },
+        {
+            "atom1": 8,
+            "atom2": 18,
+            "bond-strength": -1
         }
     ],
     "frozen-before": [
@@ -152,7 +162,7 @@
                 {
                     "bond-strength": 0.5,
                     "min-distance": 1.14,
-                    "max-distance": 1.37
+                    "max-distance": 1.55
                 }
             ],
             "offset": 0
@@ -931,7 +941,7 @@
                 {
                     "bond-strength": 0.5,
                     "min-distance": 1.75,
-                    "max-distance": 2.38
+                    "max-distance": 2.62
                 }
             ],
             "offset": 0

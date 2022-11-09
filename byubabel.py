@@ -157,7 +157,7 @@ class BYUBabel:
                     # Handles scenario where config file does not include pairing distances between elements
                     # Currently does not throw an error, and continues silently
                     if not element1 in self.config or not element2 in self.config[element1]:
-                        break
+                        continue
 
                     config_pair = self.config[element1][element2]
                     dist = distances[i][j] - config_pair.offset
@@ -287,8 +287,18 @@ class BYUBabel:
         else:
             with open(output_file, 'w') as f:
                 sys.stdout = f
-                self._write_reaction_helper()
+                if output_file.split('.',1)[1] == 'xyz':
+                    self._write_reaction_xyz(output_file)
+                else:
+                    self._write_reaction_helper()
                 sys.stdout = original_stdout
+
+    def _write_reaction_xyz(self, output_file: str = ''):
+        for state in self.reaction.states:
+            print(len(state.atoms))
+            print(output_file)
+            for atom in state.atoms:
+                print('{}\t{}\t\t{}\t\t{}'.format(atom.element, atom.x, atom.y, atom.z))
     
     def _write_reaction_helper(self):
         for state in self.reaction.states:

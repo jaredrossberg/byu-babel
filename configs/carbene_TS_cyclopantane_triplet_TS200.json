@@ -1,0 +1,997 @@
+{
+    "transition-state": 248,
+    "window": 85,
+    "frozen-forever": [
+        {
+            "atom1": 1,
+            "atom2": 2,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 3,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 4,
+            "atom2": 5,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 4,
+            "atom2": 6,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 7,
+            "atom2": 8,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 7,
+            "atom2": 9,
+            "bond-strength": 1
+        }
+    ],
+    "frozen-before": [
+        {
+            "atom1": 4,
+            "atom2": 7,
+            "bond-strength": 2
+        }
+    ],
+    "frozen-after": [
+        {
+            "atom1": 4,
+            "atom2": 7,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 4,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 7,
+            "bond-strength": 1
+        }
+    ],
+    "distance-criteria": [
+            {
+                "element1": "C",
+                "element2": "C",
+                "bond-formation": [
+                    {
+                        "bond-strength": 3,
+                        "min-distance": 0,
+                        "max-distance": 1.18
+                    },
+                    {
+                        "bond-strength": 2.5,
+                        "min-distance": 1.18,
+                        "max-distance": 1.20
+                    },
+                    {
+                        "bond-strength": 2,
+                        "min-distance": 1.20,
+                        "max-distance": 1.26
+                    },
+                    {
+                        "bond-strength": 1.5,
+                        "min-distance": 1.26,
+                        "max-distance": 1.36
+                    },
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 1.36,
+                        "max-distance": 1.61
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.61,
+                        "max-distance": 2.365
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "C",
+                "element2": "H",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.14
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.14,
+                        "max-distance": 1.37
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "H",
+                "element2": "H",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 0.63
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 0.63,
+                        "max-distance": 1.0
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "H",
+                "element2": "N",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.06
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.06,
+                        "max-distance": 1.277888884
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "H",
+                "element2": "O",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.0176
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.0176,
+                        "max-distance": 1.2335607
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "H",
+                "element2": "F",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 0.9328
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 0.9328,
+                        "max-distance": 1.189490647
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "H",
+                "element2": "S",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.3886
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.3886,
+                        "max-distance": 1.650708333
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "H",
+                "element2": "Cl",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.3674
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.3674,
+                        "max-distance": 1.593589659
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "H",
+                "element2": "Br",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.5264
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.5264,
+                        "max-distance": 1.742441391
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "H",
+                "element2": "I",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.7278
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.7278,
+                        "max-distance": 1.961682951
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "C",
+                "element2": "N",
+                "bond-formation": [
+                    {
+                        "bond-strength": 3,
+                        "min-distance": 0,
+                        "max-distance": 1.1907
+                    },
+                    {
+                        "bond-strength": 2.5,
+                        "min-distance": 1.1907,
+                        "max-distance": 1.222947
+                    },
+                    {
+                        "bond-strength": 2,
+                        "min-distance": 1.222947,
+                        "max-distance": 1.323
+                    },
+                    {
+                        "bond-strength": 1.5,
+                        "min-distance": 1.323,
+                        "max-distance": 1.3818
+                    },
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 1.3818,
+                        "max-distance": 1.5582
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.5582,
+                        "max-distance": 1.811485026
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "C",
+                "element2": "O",
+                "bond-formation": [
+                    {
+                        "bond-strength": 3,
+                        "min-distance": 0,
+                        "max-distance": 1.1583
+                    },
+                    {
+                        "bond-strength": 2.5,
+                        "min-distance": 1.1583,
+                        "max-distance": 1.194529
+                    },
+                    {
+                        "bond-strength": 2,
+                        "min-distance": 1.194529,
+                        "max-distance": 1.287
+                    },
+                    {
+                        "bond-strength": 1.5,
+                        "min-distance": 1.287,
+                        "max-distance": 1.3442
+                    },
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 1.3442,
+                        "max-distance": 1.5158
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.5158,
+                        "max-distance": 1.776938941
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "C",
+                "element2": "F",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.431
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.431,
+                        "max-distance": 1.707995316
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "C",
+                "element2": "S",
+                "bond-formation": [
+                    {
+                        "bond-strength": 2,
+                        "min-distance": 0,
+                        "max-distance": 1.602
+                    },
+                    {
+                        "bond-strength": 1.5,
+                        "min-distance": 1.602,
+                        "max-distance": 1.6732
+                    },
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 1.6732,
+                        "max-distance": 1.8868
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.8868,
+                        "max-distance": 2.217342554
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "C",
+                "element2": "Cl",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.8656
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.8656,
+                        "max-distance": 2.159101202
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "C",
+                "element2": "Br",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.0246
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.0246,
+                        "max-distance": 2.357395173
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "C",
+                "element2": "I",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.226
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.226,
+                        "max-distance": 2.614986042
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "N",
+                "element2": "N",
+                "bond-formation": [
+                    {
+                        "bond-strength": 3,
+                        "min-distance": 0,
+                        "max-distance": 1.134
+                    },
+                    {
+                        "bond-strength": 2.5,
+                        "min-distance": 1.134,
+                        "max-distance": 1.16619
+                    },
+                    {
+                        "bond-strength": 2,
+                        "min-distance": 1.16619,
+                        "max-distance": 1.26
+                    },
+                    {
+                        "bond-strength": 1.5,
+                        "min-distance": 1.26,
+                        "max-distance": 1.316
+                    },
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 1.316,
+                        "max-distance": 1.484
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.484,
+                        "max-distance": 1.788449049
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "N",
+                "element2": "O",
+                "bond-formation": [
+                    {
+                        "bond-strength": 3,
+                        "min-distance": 0,
+                        "max-distance": 1.1016
+                    },
+                    {
+                        "bond-strength": 2.5,
+                        "min-distance": 1.1016,
+                        "max-distance": 1.12
+                    },
+                    {
+                        "bond-strength": 2,
+                        "min-distance": 1.12,
+                        "max-distance": 1.224
+                    },
+                    {
+                        "bond-strength": 1.5,
+                        "min-distance": 1.224,
+                        "max-distance": 1.2784
+                    },
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 1.2784,
+                        "max-distance": 1.4416
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.4416,
+                        "max-distance": 1.742441391
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "N",
+                "element2": "F",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.3568
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.3568,
+                        "max-distance": 1.685061423
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "N",
+                "element2": "S",
+                "bond-formation": [
+                    {
+                        "bond-strength": 3,
+                        "min-distance": 0,
+                        "max-distance": 1.13
+                    },
+                    {
+                        "bond-strength": 2.5,
+                        "min-distance": 1.13,
+                        "max-distance": 1.16619
+                    },
+                    {
+                        "bond-strength": 2,
+                        "min-distance": 1.16619,
+                        "max-distance": 1.539
+                    },
+                    {
+                        "bond-strength": 1.5,
+                        "min-distance": 1.539,
+                        "max-distance": 1.6074
+                    },
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 1.6074,
+                        "max-distance": 1.8126
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.8126,
+                        "max-distance": 2.04285046
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "N",
+                "element2": "Cl",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.7914
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.7914,
+                        "max-distance": 2.135825367
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "N",
+                "element2": "Br",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.9504
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.9504,
+                        "max-distance": 2.371358682
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "N",
+                "element2": "I",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.1518
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.1518,
+                        "max-distance": 2.597769813
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "O",
+                "element2": "O",
+                "bond-formation": [
+                    {
+                        "bond-strength": 3,
+                        "min-distance": 0,
+                        "max-distance": 1.0692
+                    },
+                    {
+                        "bond-strength": 2.5,
+                        "min-distance": 1.0692,
+                        "max-distance": 1.1
+                    },
+                    {
+                        "bond-strength": 2,
+                        "min-distance": 1.1,
+                        "max-distance": 1.188
+                    },
+                    {
+                        "bond-strength": 1.5,
+                        "min-distance": 1.188,
+                        "max-distance": 1.2408
+                    },
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 1.2408,
+                        "max-distance": 1.3992
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.3992,
+                        "max-distance": 1.823010697
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "O",
+                "element2": "F",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.3144
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.3144,
+                        "max-distance": 1.753935004
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "O",
+                "element2": "S",
+                "bond-formation": [
+                    {
+                        "bond-strength": 2,
+                        "min-distance": 0,
+                        "max-distance": 1.503
+                    },
+                    {
+                        "bond-strength": 1.5,
+                        "min-distance": 1.503,
+                        "max-distance": 1.5698
+                    },
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 1.5698,
+                        "max-distance": 1.7702
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.7702,
+                        "max-distance": 2.031243954
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "O",
+                "element2": "Cl",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.749
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.749,
+                        "max-distance": 2.077691026
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "O",
+                "element2": "Br",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.908
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.908,
+                        "max-distance": 2.252321025
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "O",
+                "element2": "I",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.1094
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.1094,
+                        "max-distance": 2.597769813
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "F",
+                "element2": "F",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.2296
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.2296,
+                        "max-distance": 1.753935004
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "F",
+                "element2": "S",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.6854
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.6854,
+                        "max-distance": 1.903825097
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "F",
+                "element2": "Cl",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.6642
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.6642,
+                        "max-distance": 1.996446343
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "F",
+                "element2": "Br",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 1.8232
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 1.8232,
+                        "max-distance": 2.147461758
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "F",
+                "element2": "I",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.0246
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.0246,
+                        "max-distance": 2.194037374
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "S",
+                "element2": "S",
+                "bond-formation": [
+                    {
+                        "bond-strength": 2,
+                        "min-distance": 0,
+                        "max-distance": 1.818
+                    },
+                    {
+                        "bond-strength": 1.5,
+                        "min-distance": 1.818,
+                        "max-distance": 1.8988
+                    },
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 1.8988,
+                        "max-distance": 2.1412
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.1412,
+                        "max-distance": 2.486071198
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "S",
+                "element2": "Cl",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.12
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.12,
+                        "max-distance": 2.474362948
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "S",
+                "element2": "Br",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.279
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 0,
+                        "max-distance": 2.708872828
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "S",
+                "element2": "I",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.4804
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.4804,
+                        "max-distance": 3.002926573
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "Cl",
+                "element2": "Cl",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.0988
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.0988,
+                        "max-distance": 2.415852231
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "Cl",
+                "element2": "Br",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.2578
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.2578,
+                        "max-distance": 2.591530822
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "Cl",
+                "element2": "I",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.4592
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.4592,
+                        "max-distance": 2.779352443
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "Br",
+                "element2": "Br",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.4168
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.4168,
+                        "max-distance": 2.755853407
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "Br",
+                "element2": "I",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.6182
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.6182,
+                        "max-distance": 3.229337703
+                    }
+                ],
+                "offset": 0
+            },
+            {
+                "element1": "I",
+                "element2": "I",
+                "bond-formation": [
+                    {
+                        "bond-strength": 1,
+                        "min-distance": 0,
+                        "max-distance": 2.8196
+                    },
+                    {
+                        "bond-strength": 0.5,
+                        "min-distance": 2.8196,
+                        "max-distance": 3.214970917
+                    }
+                ],
+                "offset": 0
+            }
+    ]
+}
