@@ -301,12 +301,12 @@ class BYUBabel:
                 print('{}\t{}\t\t{}\t\t{}'.format(atom.element, atom.x, atom.y, atom.z))
     
     def _write_reaction_helper(self):
-        for state in self.reaction.states:
-            self._write_state(state)
+        for (i, state) in enumerate(self.reaction.states):
+            self._write_state(state, i)
         pass
 
-    def _write_state(self, state: State):
-        print('\n\n')
+    def _write_state(self, state: State, step: int = -1):
+        print('Step: {}\n\n'.format(step))
         print('{:>3}{:>3}  0  0  0  0  0  0  0  0999 V2000'.format(len(state.atoms), len(state.bonds)))
         for atom in state.atoms:
             print('{:>12f}{:>12f}{:>12f} {:<4}'.format(atom.x, atom.y, atom.z, atom.element))

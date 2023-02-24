@@ -1,143 +1,118 @@
 {
-    "transition-state": 849,
-"window": 35,
-"frozen-forever": [
-	{
-		"atom1": 1,
-		"atom2": 12,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 1,
-		"atom2": 7,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 15,
-		"atom2": 16,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 15,
-		"atom2": 17,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 15,
-		"atom2": 18,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 19,
-		"atom2": 20,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 19,
-		"atom2": 21,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 19,
-		"atom2": 22,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 2,
-		"atom2": 11,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 2,
-		"atom2": 19,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 3,
-		"atom2": 8,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 4,
-		"atom2": 13,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 4,
-		"atom2": 9,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 5,
-		"atom2": 14,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 5,
-		"atom2": 15,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 6,
-		"atom2": 10,
-		"bond-strength": 1
-	}
-],
-"frozen-before": [
-	{
-		"atom1": 2,
-		"atom2": 3,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 5,
-		"atom2": 6,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 3,
-		"atom2": 4,
-		"bond-strength": 2
-	},
-	{
-		"atom1": 1,
-		"atom2": 6,
-		"bond-strength": 2
-	},
-	{
-		"atom1": 2,
-		"atom2": 5,
-		"bond-strength": 1
-	}
-],
-"frozen-after": [
-	{
-		"atom1": 2,
-		"atom2": 3,
-		"bond-strength": 2
-	},
-	{
-		"atom1": 5,
-		"atom2": 6,
-		"bond-strength": 2
-	},
-	{
-		"atom1": 3,
-		"atom2": 4,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 1,
-		"atom2": 6,
-		"bond-strength": 1
-	},
-	{
-		"atom1": 1,
-		"atom2": 4,
-		"bond-strength": 1
-	}
-],
-"distance-criteria": [
+    "transition-state": 150,
+    "window": 20,
+    "frozen-forever": [
+        {
+            "atom1": 1,
+            "atom2": 10,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 2,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 1,
+            "atom2": 6,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 10,
+            "atom2": 11,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 10,
+            "atom2": 12,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 10,
+            "atom2": 13,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 14,
+            "atom2": 15,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 14,
+            "atom2": 17,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 15,
+            "atom2": 21,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 17,
+            "atom2": 18,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 17,
+            "atom2": 19,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 17,
+            "atom2": 20,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 3,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 4,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 2,
+            "atom2": 5,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 6,
+            "atom2": 7,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 6,
+            "atom2": 8,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 6,
+            "atom2": 9,
+            "bond-strength": 1
+        }
+    ],
+    "frozen-before": [
+        {
+            "atom1": 14,
+            "atom2": 16,
+            "bond-strength": 2
+        }
+    ],
+    "frozen-after": [
+        {
+            "atom1": 1,
+            "atom2": 16,
+            "bond-strength": 1
+        },
+        {
+            "atom1": 14,
+            "atom2": 16,
+            "bond-strength": 1
+        }
+    ],
+    "distance-criteria": [
         {
             "element1": "C",
             "element2": "C",
@@ -155,22 +130,22 @@
                 {
                     "bond-strength": 2,
                     "min-distance": 1.28,
-                    "max-distance": 1.315
+                    "max-distance": 1.36
                 },
                 {
                     "bond-strength": 1.5,
-                    "min-distance": 1.315,
-                    "max-distance": 1.455
+                    "min-distance": 1.36,
+                    "max-distance": 1.44
                 },
                 {
                     "bond-strength": 1,
-                    "min-distance": 1.455,
+                    "min-distance": 1.44,
                     "max-distance": 1.61
                 },
                 {
                     "bond-strength": 0.5,
                     "min-distance": 1.61,
-                    "max-distance": 2.06
+                    "max-distance": 1.89
                 }
             ],
             "offset": 0
@@ -392,11 +367,11 @@
                 {
                     "bond-strength": 1,
                     "min-distance": 1.3442,
-                    "max-distance": 1.5158
+                    "max-distance": 1.5149
                 },
                 {
                     "bond-strength": 0.5,
-                    "min-distance": 1.5158,
+                    "min-distance": 1.5149,
                     "max-distance": 1.776938941
                 }
             ],

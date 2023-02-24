@@ -3,6 +3,16 @@
   "window": 30,
   "frozen-forever": [
     {
+      "atom1": 3,
+      "atom2": 5,
+      "bond-strength": -1
+  },
+  {
+      "atom1": 6,
+      "atom2": 4,
+      "bond-strength": -1
+  },
+  {
         "atom1": 2,
         "atom2": 4,
         "bond-strength": -1
@@ -185,7 +195,7 @@
         {
           "bond-strength": 0.5,
           "min-distance": 1.61,
-          "max-distance": 2.32
+          "max-distance": 2.355
         }
       ],
       "offset": 0
