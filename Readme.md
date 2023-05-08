@@ -66,9 +66,9 @@ While building iORA, it was found that [OpenBabel](http://openbabel.org/wiki/Mai
 
 8. Modify iORA's [ReactionSectionView.swift](https://github.com/DanielEss-lab/iORA/blob/main/iORA/iORA/ReactionSelectionView.swift) to include the new reaction.
 
-9. Compile and run iORA to test that the reaction shows as expected. Repeat steps 5-9 as needed.
+9. In XCode, compile and run iORA to test that the reaction shows as expected. Repeat steps 5-9 as needed.
 
-10. If desired, the new build of iORA can be pushed to Apple Testflight by changed the output target to `Any iOS device (arm64)` and then navigating to `Product` > `Archive` in the menu. Select `Distribute App` and follow the steps to upload the build. The uploaded build can be sent to Testflight groups or submitted to the App Store from [App Store Connect](https://appstoreconnect.apple.com/apps).
+10. If desired, the new build of iORA can be pushed to Apple Testflight from XCode by changing the output target to `Any iOS device (arm64)` and then navigating to `Product` > `Archive` in the menu. Select `Distribute App` and follow the steps to upload the build. The uploaded build can be sent to Testflight groups or submitted to the App Store from [App Store Connect](https://appstoreconnect.apple.com/apps).
 
 
 ## Important Note:
