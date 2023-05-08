@@ -1,6 +1,6 @@
 # BYU-Babel
 
-This program was created by Brigham Young University to assist with chemistry teaching app [iORA](https://github.com/DanielEss-lab/iORA).
+This program was created by the [Ess Research Lab](https://esslab.byu.edu/) at Brigham Young University to assist with chemistry teaching app [iORA](https://github.com/DanielEss-lab/iORA).
 
 While building iORA, it was found that [OpenBabel](http://openbabel.org/wiki/Main_Page) did not support partial bonds. BYU-Babel aims to replicate the functionality needed from OpenBabel while also supporting partial bonds.
 
